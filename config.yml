@@ -59,10 +59,10 @@ params:
         enabled: true# needs to be explicitly set
         title: Avinash Dharan
         subtitle: "An eclectic guy with Da Vinci's curse. I dabble in a lot of things. SRE engineer by profession, always a student of life"
-        imageUrl: "author.jpeg"
-        imageWidth: 120
-        imageHeight: 120
-        imageTitle: test.jpg
+        imageUrl: "author.jpg"
+        imageWidth: 210
+        imageHeight: 200
+        imageTitle: Author.jpg
         buttons:
             - name: Posts
               url: posts
