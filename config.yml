@@ -86,7 +86,7 @@ params:
 
     analytics:
         google:
-            SiteVerificationTag: "XYZabc"
+            SiteVerificationTag: "G-BLWKRK13HN"
         bing:
             SiteVerificationTag: "XYZabc"
         yandex:
@@ -144,3 +144,4 @@ menu:
 #         lineNos: true
 #         style: monokai
 
+#<script defer data-domain="avinashdharan.com" src="https://plausible.io/js/plausible.js"></script>
