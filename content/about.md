@@ -18,5 +18,5 @@ For my professional credentials , please refer to my [LinkedIn page](https://www
 This site is built with:  
 * [Hugo](https://gohugo.io/) , a static site generator
 * Theme used is [PaperMod](https://github.com/adityatelange/hugo-PaperMod)
-* Code base for the site uploaded [here](https://github.com/avinashdharan/avinashdharan.com/)
+* Code base for the site uploaded [here](https://github.com/avinashdharan/avinashdharan.com/) in Github.
 * And the awesome platform [Netlify](https://www.netlify.com/), which does the auto deploy of the code changes from Github. 
