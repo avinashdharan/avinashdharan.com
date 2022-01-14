@@ -15,7 +15,6 @@ For this to work, please enable it in the command palette of VS Code first.
 Use Ctrl+Shift+P or Cmd+Shift+P to launch the command palette and search for "path"
 
 
-![Screenshot](images/2022-01-15-00-53-33.png)
-
+![Screenshot](/images/2022-01-15-00-53-33.png)
 
 Choose the Option "Install 'code' command from PATH" and now you can open any directory directly from terminal. 

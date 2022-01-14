@@ -5,6 +5,6 @@ draft: false
 ---
 
 Short snippets that I learn everyday. It may even be just two tweets long and may not really warrant a separate blog post.
-Hence the separate section.  Inspired by [KraceKumar TIL](https://til.kracekumar.com/) and 
+Hence the separate section.  Inspired by [KraceKumar TIL](https://til.kracekumar.com/) and [Josh Branchaud TIL](https://github.com/jbranchaud/til)
 
 
