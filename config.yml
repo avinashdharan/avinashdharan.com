@@ -58,7 +58,7 @@ params:
     profileMode:
         enabled: true# needs to be explicitly set
         title: Avinash Dharan
-        subtitle: "An eclectic guy with Da Vinci's curse. I dabble in a lot of things. SRE engineer by profession, always a student of life"
+        subtitle: "An eclectic guy with Da Vinci's curse. SRE engineer by profession, always a student of life"
         imageUrl: "author.jpg"
         imageWidth: 210
         imageHeight: 200

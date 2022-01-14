@@ -7,10 +7,9 @@ summary: about
 
 Hi there! I'm Avinash.
 
-I'm a Site reliability engineer by profession and I enjoy tinkering around with
-Technology. And I also have a myriad of interests. Usually in phases, I get obsessed about certain topics and I end up doing indepth research about it. And it can touch a lot of topics like technology, personal finance, health, etc. 
+I'm a Site reliability engineer by profession and I enjoy tinkering around with Technology. And I also have a myriad of interests. Usually, in phases, I get obsessed with certain topics and I end up doing in-depth research about them. And it can be about a variety of topics like technology, personal finance, productivity, health, etc.
 
-Right now, I have set up a Home lab and have been exploring a lot in that area. 
+What I'm working on now: I have set up a Home lab and have been exploring more in that area.
 
 For my professional credentials , please refer to my [LinkedIn page](https://www.linkedin.com/in/avinashdharan/). 
 
