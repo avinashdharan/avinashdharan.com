@@ -5,7 +5,7 @@ draft: false
 cover:
     image: "/test.jpg"
 ---
-![Image test](/test.jpg)
+![Image test](/static/test.jpg)
 
 
 

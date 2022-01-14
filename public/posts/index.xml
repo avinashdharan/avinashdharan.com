@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Avinash</title>
+    <link>https://avinashdharan.com/posts/</link>
+    <description>Recent content on Avinash</description>
+    <image>
+      <url>https://avinashdharan.com/test.jpg</url>
+      <link>https://avinashdharan.com/test.jpg</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 08 Jan 2022 17:55:14 +0530</lastBuildDate><atom:link href="https://avinashdharan.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello World</title>
+      <link>https://avinashdharan.com/posts/hello-world/</link>
+      <pubDate>Sat, 08 Jan 2022 03:42:40 +0530</pubDate>
+      
+      <guid>https://avinashdharan.com/posts/hello-world/</guid>
+      <description>Hello world!
+I&amp;rsquo;m Avinash</description>
+    </item>
+    
+  </channel>
+</rss>
