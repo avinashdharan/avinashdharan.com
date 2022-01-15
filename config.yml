@@ -8,7 +8,7 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 
-googleAnalytics: G-BLWKRK13HN
+#googleAnalytics: G-BLWKRK13HN
 
 minify:
     disableXML: true
@@ -91,13 +91,13 @@ params:
        # - name: instagram
        #  url: "https://instagram.com/avinashdharan"
 
-    analytics:
-        google:
-            SiteVerificationTag: "G-BLWKRK13HN"
-        bing:
-            SiteVerificationTag: "XYZabc"
-        yandex:
-            SiteVerificationTag: "XYZabc"
+    # analytics:
+    #     google:
+    #         SiteVerificationTag: "G-BLWKRK13HN"
+    #     bing:
+    #         SiteVerificationTag: "XYZabc"
+    #     yandex:
+    #         SiteVerificationTag: "XYZabc"
 
     cover:
         hidden: false # hide everywhere but not in structured data
