@@ -39,6 +39,7 @@ params:
     hideSummary: false
     showtoc: false
     tocopen: false
+    ShowFullTextinRSS: true
 
     assets:
         # disableHLJS: true # to disable highlight.js
@@ -75,16 +76,22 @@ params:
         Content: Welcome to my blog. I'm Avinash , SRE engineer by trade and student of life.
 
     socialIcons:
+        - name: email
+          url: mailto:avinashdharan@gmail.com
         - name: linkedin
           url: "https://www.linkedin.com/in/avinashdharan/"
-        - name: twitter
-          url: "https://twitter.com/avinashdharan"
-        - name: instagram
-          url: "https://instagram.com/avinashdharan"
+        - name: telegram
+          url: "https://t.me/avinashdharan"
         - name: github
           url: "https://github.com/avinashdharan"
+        - name: twitter
+          url: "https://twitter.com/avinashdharan"
         - name: rss
           url: "https://avinashdharan.com/index.xml"
+       # - name: instagram
+       #  url: "https://instagram.com/avinashdharan"
+  
+     
 
     analytics:
         google:
