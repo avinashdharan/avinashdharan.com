@@ -1,7 +1,7 @@
 baseURL: "https://avinashdharan.com/"
 title: Avinash
 paginate: 5
-theme: PaperMod
+theme: ["PaperMod"]
 
 enableRobotsTXT: true
 buildDrafts: false
@@ -90,8 +90,6 @@ params:
           url: "https://avinashdharan.com/index.xml"
        # - name: instagram
        #  url: "https://instagram.com/avinashdharan"
-  
-     
 
     analytics:
         google:
@@ -143,6 +141,9 @@ menu:
           name: About
           url: /about
           weight: 50
+          
+
+
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 # pygmentsUseClasses: true
 # markup:
