@@ -1,8 +1,8 @@
 ---
-title: "Vscode"
+title: "Vscode in Terminal"
 date: 2022-01-15T00:23:46+05:30
 draft: false
-tags: [vscode]
+tags: [vscode,terminal]
 ---
 
 While browsing in the terminal, if you want to open VS Code, It can be launched with the below command. 
@@ -10,7 +10,7 @@ While browsing in the terminal, if you want to open VS Code, It can be launched 
 To open the current directory
 ```
 code .
-```
+``` 
 For this to work, please enable it in the command palette of VS Code first. 
 Use Ctrl+Shift+P or Cmd+Shift+P to launch the command palette and search for "path"
 
