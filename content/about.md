@@ -19,4 +19,4 @@ This site is built with:
 * Theme used is [PaperMod](https://github.com/adityatelange/hugo-PaperMod)
 * Code base for the site uploaded [here](https://github.com/avinashdharan/avinashdharan.com/) in Github.
 * And the awesome platform [Netlify](https://www.netlify.com/), which does the auto deploy of the code changes from Github. 
-* And SSL cert by Let's encrypt. 
+* And SSL cert by [Let's Encrypt](https://letsencrypt.org/). 
