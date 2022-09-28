@@ -4,11 +4,14 @@ date: 2022-01-15T02:54:17+05:30
 draft: true
 ---
 
+```SHELL
 
 $ docker run --name some-nginx -v /some/content:/usr/share/nginx/html:ro -d nginx
 https://github.com/avinashdharan/avinashdharan_blog
 config/_default/module.toml
-hugo server --bind=192.169.3.26
+sudo lvextend -r -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lvhugo server --bind=192.169.3.26
+
+
 
 
 
@@ -139,3 +142,4 @@ root@entserver:/home/avins/avinashdharan/themes# git clone git@github.com:jonath
 git submodule add -b stable https://github.com/jpanther/congo.git themes/congo
 git submodule add -b stable https://github.com/jpanther/congo.git themes/congo
 
+```
