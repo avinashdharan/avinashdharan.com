@@ -11,23 +11,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 08 Jan 2022 17:55:14 +0530</lastBuildDate><atom:link href="https://avinashdharan.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Test</title>
-      <link>https://avinashdharan.com/til/test/</link>
-      <pubDate>Sat, 08 Jan 2022 17:51:07 +0530</pubDate>
-      
-      <guid>https://avinashdharan.com/til/test/</guid>
-      <description>Hello World!
-In this series , let me talk about what I learn frequently. They may be just two tweets long and may not be like a full blog post.</description>
-    </item>
-    
-    <item>
       <title>Hello World</title>
       <link>https://avinashdharan.com/posts/hello-world/</link>
       <pubDate>Sat, 08 Jan 2022 03:42:40 +0530</pubDate>
       
       <guid>https://avinashdharan.com/posts/hello-world/</guid>
       <description>Hello world!
-I&amp;rsquo;m Avinash</description>
+I&amp;rsquo;m Avinash. To know more about me, please visit my About page. One of the main inspirations, to start writing is to provide value to others. There may be a variety of topics I would be writing about. Documenting my journey through life, hopefully, can help someone.</description>
+      <content:encoded><![CDATA[<p><img loading="lazy" src="/test.jpg" alt="Image test"  />
+</p>
+<p>Hello world!<br>
+I&rsquo;m Avinash. To know more about me, please visit my <a href="https://avinashdharan.com/about/">About</a> page.
+One of the main inspirations, to start writing is to provide value to others. There may be a variety of topics I would be writing about.
+Documenting my journey through life, hopefully, can help someone.</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://avinashdharan.com/posts/add_extra_space_vmware_ubuntu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://avinashdharan.com/posts/add_extra_space_vmware_ubuntu/</guid>
+      <description>resize2fs /dev/sda5</description>
+      <content:encoded><![CDATA[<p>resize2fs /dev/sda5</p>
+]]></content:encoded>
     </item>
     
     <item>
@@ -37,6 +45,20 @@ I&amp;rsquo;m Avinash</description>
       
       <guid>https://avinashdharan.com/about/</guid>
       <description>about</description>
+      <content:encoded><![CDATA[<p>Hi there! I&rsquo;m Avinash.</p>
+<p>I&rsquo;m a Site reliability engineer by profession and I enjoy tinkering around with Technology. And I also have a myriad of interests. Usually, in phases, I get obsessed with certain topics and I end up doing in-depth research about them. And it can be about a variety of topics like technology, personal finance, productivity, health, etc.</p>
+<p>What I&rsquo;m working on now: I have set up a Home lab and have been exploring more in that area.</p>
+<p>For my professional credentials , please refer to my <a href="https://www.linkedin.com/in/avinashdharan/">LinkedIn page</a>.</p>
+<h3 id="tech-specs-of-the-site">Tech specs of the site</h3>
+<p>This site is built with:</p>
+<ul>
+<li><a href="https://gohugo.io/">Hugo</a> , a static site generator</li>
+<li>Theme used is <a href="https://github.com/adityatelange/hugo-PaperMod">PaperMod</a></li>
+<li>Code base for the site uploaded <a href="https://github.com/avinashdharan/avinashdharan.com/">here</a> in Github.</li>
+<li>And the awesome platform <a href="https://www.netlify.com/">Netlify</a>, which does the auto deploy of the code changes from Github.</li>
+<li>And SSL cert by <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a>.</li>
+</ul>
+]]></content:encoded>
     </item>
     
     
