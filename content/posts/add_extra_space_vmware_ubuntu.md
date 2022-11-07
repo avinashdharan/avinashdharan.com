@@ -1,1 +1,0 @@
-resize2fs /dev/sda5

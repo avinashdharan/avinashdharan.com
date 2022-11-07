@@ -65,10 +65,10 @@ params:
         imageHeight: 200
         imageTitle: Author.jpg
         buttons:
-            - name: Posts
-              url: posts
-            - name: Tags
-              url: tags
+            - name: posts
+              url: https://blog.avinashdharan.com/
+            #- name: Tags
+            #  url: tags
 
     # home-info mode
     homeInfoParams:
@@ -125,22 +125,22 @@ menu:
           name: Blog
           url: https://blog.avinashdharan.com/
           weight: 10
-        - identifier: Archives
-          name: Archives
-          url: /archives
-          weight: 20
-        - identifier: tags
-          name: tags
-          url: /tags/
-          weight: 30
+      #  - identifier: Archives
+      #    name: Archives
+      #    url: /archives
+      #    weight: 20
+      #  - identifier: tags
+      #    name: tags
+      #    url: /tags/
+      #    weight: 30
         - identifier: TIL
           name: TIL - Today I learnt
           url: /til
-          weight: 40
+          weight: 20
         - identifier: About
           name: About
           url: /about
-          weight: 50
+          weight: 30
           
 
 
