@@ -123,7 +123,7 @@ menu:
     main:
         - identifier: Blog
           name: Blog
-          url: /posts
+          url: https://blog.avinashdharan.com/
           weight: 10
         - identifier: Archives
           name: Archives
