@@ -65,10 +65,12 @@ params:
         imageHeight: 200
         imageTitle: Author.jpg
         buttons:
-            - name: posts
+            - name: Posts
               url: https://blog.avinashdharan.com/
-            #- name: Tags
-            #  url: tags
+            - name: About
+              url: /about
+            - name: Today I learnt
+              url: /til
 
     # home-info mode
     homeInfoParams:
@@ -121,10 +123,10 @@ params:
         keys: ["title", "permalink", "summary", "content"]
 menu:
     main:
-        - identifier: Blog
-          name: Blog
-          url: https://blog.avinashdharan.com/
-          weight: 10
+      #  - identifier: Blog
+      #   name: Blog
+      #    url: https://blog.avinashdharan.com/
+      #    weight: 10
       #  - identifier: Archives
       #    name: Archives
       #    url: /archives
@@ -133,14 +135,14 @@ menu:
       #    name: tags
       #    url: /tags/
       #    weight: 30
-        - identifier: TIL
-          name: TIL - Today I learnt
-          url: /til
-          weight: 20
-        - identifier: About
-          name: About
-          url: /about
-          weight: 30
+      #  - identifier: TIL
+      #    name: TIL - Today I learnt
+      #    url: /til
+      #    weight: 20
+      #  - identifier: About
+      #    name: About
+      #    url: /about
+      #    weight: 30
           
 
 
