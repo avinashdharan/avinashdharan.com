@@ -1,7 +1,7 @@
 ---
 title: "Vscode in Terminal"
 date: 2022-01-15T00:23:46+05:30
-draft: true
+draft: false
 tags: [vscode,terminal]
 ---
 
