@@ -71,7 +71,8 @@ params:
               url: /about
             - name: Today I learnt
               url: /til
-
+            - name: Notes
+              url: https://notes.avinashdharan.com/
     # home-info mode
     homeInfoParams:
         Title: "Hey there!"
@@ -86,8 +87,6 @@ params:
           url: "https://t.me/avinashdharan"
         - name: github
           url: "https://github.com/avinashdharan"
-        - name: twitter
-          url: "https://twitter.com/avinashdharan"
         - name: rss
           url: "https://avinashdharan.com/index.xml"
        # - name: instagram
