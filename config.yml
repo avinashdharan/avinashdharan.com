@@ -65,14 +65,15 @@ params:
         imageHeight: 200
         imageTitle: Author.jpg
         buttons:
-            - name: Posts
-              url: https://blog.avinashdharan.com/
-            - name: About
-              url: /about
-            - name: Today I learnt
-              url: /til
             - name: Notes
               url: https://notes.avinashdharan.com/
+            - name: About
+              url: /about
+            - name: Posts
+              url: https://blog.avinashdharan.com/
+#           - name: Today I learnt
+#             url: /til
+
     # home-info mode
     homeInfoParams:
         Title: "Hey there!"
