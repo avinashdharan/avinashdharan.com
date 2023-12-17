@@ -71,8 +71,8 @@ params:
               url: /about
             - name: Posts
               url: https://blog.avinashdharan.com/
-#           - name: Today I learnt
-#             url: /til
+            - name: Today I learnt
+              url: /til
 
     # home-info mode
     homeInfoParams:
