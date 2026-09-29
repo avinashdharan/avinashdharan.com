@@ -1,0 +1,31 @@
+{{- $cardType := .Params.card | default "note" -}}
+{{- $summary := .Summary | plainify | htmlUnescape -}}
+<article class="garden-card garden-card--{{ $cardType }}{{ with .Params.cover.image }} garden-card--image{{ end }}">
+    {{- with .Params.cover.image }}
+    <a class="garden-card-cover" href="{{ $.RelPermalink }}" tabindex="-1" aria-hidden="true">
+        <img src="{{ . | relURL }}" alt="" loading="lazy">
+    </a>
+    {{- end }}
+
+    <div class="garden-card-body">
+        <div class="garden-card-meta">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+        </div>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        {{- if and (eq $cardType "quote") (le .WordCount 70) }}
+        <blockquote>{{ .Content }}</blockquote>
+        {{- else if and (eq $cardType "note") (le .WordCount 45) }}
+        <div class="garden-card-copy">{{ .Content }}</div>
+        {{- else }}
+        <p class="garden-card-summary">{{ $summary | truncate 175 }}</p>
+        {{- end }}
+
+        {{- with .Params.tags }}
+        <ul class="garden-card-tags" aria-label="Tags">
+            {{- range first 3 . }}
+            <li>{{ . }}</li>
+            {{- end }}
+        </ul>
+        {{- end }}
+    </div>
+</article>

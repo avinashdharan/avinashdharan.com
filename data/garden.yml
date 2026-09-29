@@ -1,0 +1,33 @@
+eyebrow: DIGITAL GARDEN
+title: A public notebook for unfinished thinking.
+description: Notes on systems, tools, books, life, and whatever else sparks my curiosity.
+
+about:
+  title: A bit about this place
+  body: Somewhere between a personal wiki, a blog, and a notebook. A place to collect ideas in progress, useful references, and things worth remembering—and to share what I learn along the way.
+  footnote: It grows as I learn, build, read, and explore.
+
+profile:
+  avatar: /images/avatar-hoodie.png
+  alt: Illustrated portrait of Avinash wearing glasses and a dark hoodie
+
+topics:
+  - label: SRE
+    query: sre
+  - label: Homelab
+    query: homelab
+  - label: Products
+    query: products
+  - label: Travel
+    query: travel
+  - label: Finance
+    query: finance
+  - label: Random
+    query: random
+
+now:
+  title: Now
+  items:
+    - Building this digital garden
+    - Homelab experiments
+    - Writing more often
