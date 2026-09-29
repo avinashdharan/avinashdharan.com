@@ -37,6 +37,7 @@ params:
     disableThemeToggle: false
 
     mainSections:
+        - garden
         - posts
         - til
 

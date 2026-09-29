@@ -1,0 +1,207 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+garden_root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+garden_content_dir="$garden_root/content/garden"
+garden_preview_url="http://127.0.0.1:1414/"
+
+say() {
+    printf '%s\n' "$*"
+}
+
+fail() {
+    printf 'garden: %s\n' "$*" >&2
+    exit 1
+}
+
+usage() {
+    cat <<'EOF'
+Usage:
+  ./garden new "Title"
+  ./garden preview
+  ./garden publish ["Commit message"]
+
+Commands:
+  new      Create a note in content/garden and open it in Obsidian.
+  preview  Serve the site at http://127.0.0.1:1414/ until Control-C.
+  publish  Validate, commit content and images, then push main.
+EOF
+}
+
+require_command() {
+    command -v "$1" >/dev/null 2>&1 || fail "'$1' is required."
+}
+
+slugify() {
+    local input="$1"
+    local ascii
+
+    ascii="$(printf '%s' "$input" | iconv -f UTF-8 -t ASCII//TRANSLIT 2>/dev/null || printf '%s' "$input")"
+    printf '%s' "$ascii" \
+        | tr '[:upper:]' '[:lower:]' \
+        | sed -E 's/[^a-z0-9]+/-/g; s/^-+//; s/-+$//'
+}
+
+open_note() {
+    local note_path="$1"
+    local note_name="$2"
+    local vault_name
+    local obsidian_uri
+
+    [[ "${GARDEN_NO_OPEN:-0}" == "1" ]] && return 0
+    command -v open >/dev/null 2>&1 || return 0
+
+    vault_name="$(basename "$garden_root")"
+    obsidian_uri="obsidian://open?vault=${vault_name}&file=content%2Fgarden%2F${note_name%.md}"
+
+    if open -Ra Obsidian >/dev/null 2>&1; then
+        open "$obsidian_uri" >/dev/null 2>&1 || true
+    else
+        open "$note_path" >/dev/null 2>&1 || true
+    fi
+}
+
+new_note() {
+    [[ $# -eq 1 ]] || fail 'Use: ./garden new "Title"'
+
+    local title="$1"
+    local slug
+    local note_date
+    local note_time
+    local note_path
+    local yaml_title
+
+    slug="$(slugify "$title")"
+    [[ -n "$slug" ]] || fail "The title needs at least one letter or number."
+
+    note_date="$(date '+%Y-%m-%d')"
+    note_time="$(date '+%Y-%m-%dT%H:%M:%S%z')"
+    note_path="$garden_content_dir/${note_date}-${slug}.md"
+    [[ ! -e "$note_path" ]] || fail "A note already exists at $note_path"
+
+    mkdir -p "$garden_content_dir"
+    yaml_title="${title//\\/\\\\}"
+    yaml_title="${yaml_title//\"/\\\"}"
+
+    cat >"$note_path" <<EOF
+---
+title: "$yaml_title"
+date: $note_time
+draft: false
+tags: []
+---
+
+
+EOF
+
+    say "Created ${note_path#$garden_root/}"
+    open_note "$note_path" "${note_path##*/}"
+}
+
+preview_site() {
+    require_command hugo
+
+    if command -v lsof >/dev/null 2>&1 \
+        && lsof -nP -iTCP:1414 -sTCP:LISTEN >/dev/null 2>&1; then
+        say "Preview is already running at $garden_preview_url"
+        command -v open >/dev/null 2>&1 && open "$garden_preview_url" >/dev/null 2>&1 || true
+        return 0
+    fi
+
+    say "Preview: $garden_preview_url"
+    say "Press Control-C to stop it."
+
+    if command -v open >/dev/null 2>&1; then
+        (sleep 1; open "$garden_preview_url" >/dev/null 2>&1 || true) &
+    fi
+
+    exec hugo server \
+        --bind 127.0.0.1 \
+        --port 1414 \
+        --disableFastRender \
+        --renderToMemory \
+        --buildDrafts=false
+}
+
+cleanup_publish() {
+    if [[ -n "${garden_verify_dir:-}" && -d "$garden_verify_dir" ]]; then
+        case "$garden_verify_dir" in
+            */garden-build.*) rm -rf "$garden_verify_dir" ;;
+        esac
+    fi
+}
+
+publish_site() {
+    [[ $# -le 1 ]] || fail 'Use: ./garden publish ["Commit message"]'
+
+    require_command git
+    require_command hugo
+
+    local branch
+    local publish_message
+    local commit_id
+
+    branch="$(git branch --show-current)"
+    [[ "$branch" == "main" ]] || fail "Publishing requires main. Current branch: ${branch:-detached HEAD}"
+    git remote get-url origin >/dev/null 2>&1 || fail "Git remote 'origin' is missing."
+
+    git diff --cached --quiet || fail "Commit or unstage the files already staged in Git."
+    if ! git diff --quiet -- . ':(exclude)content/**' ':(exclude)static/images/**'; then
+        fail "Commit site-code changes separately before publishing content."
+    fi
+
+    say "Checking origin/main..."
+    git fetch origin main
+    git merge-base --is-ancestor origin/main HEAD \
+        || fail "Local main is behind or has diverged. Run 'git pull --ff-only' first."
+
+    garden_verify_dir="$(mktemp -d "${TMPDIR:-/tmp}/garden-build.XXXXXX")"
+    trap cleanup_publish EXIT
+
+    say "Checking the Hugo build..."
+    hugo \
+        --noBuildLock \
+        --destination "$garden_verify_dir/public" \
+        --cacheDir "$garden_verify_dir/cache" \
+        --cleanDestinationDir \
+        --minify
+
+    git add -- content static/images
+    if git diff --cached --quiet; then
+        say "Nothing to publish."
+        return 0
+    fi
+
+    publish_message="${1:-Publish garden notes $(date '+%Y-%m-%d')}"
+    git commit -m "$publish_message"
+    git push origin main
+
+    commit_id="$(git rev-parse --short HEAD)"
+    say "Published $commit_id. Cloudflare Pages will deploy the push to main."
+}
+
+cd "$garden_root"
+
+case "${1:-help}" in
+    new)
+        shift
+        new_note "$@"
+        ;;
+    preview)
+        shift
+        [[ $# -eq 0 ]] || fail "preview does not take arguments."
+        preview_site
+        ;;
+    publish)
+        shift
+        publish_site "$@"
+        ;;
+    help|-h|--help)
+        usage
+        ;;
+    *)
+        usage >&2
+        fail "Unknown command: $1"
+        ;;
+esac
