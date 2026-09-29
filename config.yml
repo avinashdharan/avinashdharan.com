@@ -1,7 +1,15 @@
 baseURL: "https://avinashdharan.com/"
 title: Avinash
-paginate: 5
 theme: ["PaperMod"]
+
+pagination:
+    pagerSize: 5
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON
 
 enableRobotsTXT: true
 buildDrafts: false
@@ -16,16 +24,21 @@ minify:
 
 params:
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
-    title: Avinash Personal site
-    description: "Personal site of Avinash"
+    title: Avinash's digital garden
+    description: "A public notebook for unfinished thinking."
 #    keywords: [Blog, Portfolio, PaperMod]
     keywords: [Portfolio]
    # author: Avins
     # author: ["Me", "You"] # multiple authors
-    images: ["test.jpg"]
+    author: Avinash Dharan
+    images: ["images/avatar-hoodie.png"]
     DateFormat: "January 2, 2006"
-    defaultTheme: auto # dark, light
+    defaultTheme: dark # dark, light
     disableThemeToggle: false
+
+    mainSections:
+        - posts
+        - til
 
     ShowReadingTime: false
     ShowShareButtons: true
@@ -57,7 +70,7 @@ params:
 
     # profile-mode
     profileMode:
-        enabled: true# needs to be explicitly set
+        enabled: false
         title: Avinash Dharan
         subtitle: "An eclectic guy with Da Vinci's curse. SRE engineer by profession, always a student of life"
         imageUrl: "author.jpg"
@@ -120,7 +133,7 @@ params:
         distance: 1000
         threshold: 0.4
         minMatchCharLength: 0
-        keys: ["title", "permalink", "summary", "content"]
+        keys: ["title", "permalink", "summary", "content", "tags"]
 #menu:
    # main:
       #  - identifier: Blog

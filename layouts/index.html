@@ -1,0 +1,79 @@
+{{- define "main" }}
+{{- $garden := .Site.Data.garden }}
+{{- $pages := where .Site.RegularPages "Section" "in" .Site.Params.mainSections }}
+<div class="garden-home">
+    <div class="garden-shell">
+        <section class="garden-main" aria-labelledby="garden-title">
+            <header class="garden-hero">
+                <p class="garden-eyebrow">{{ $garden.eyebrow }}</p>
+                <h1 id="garden-title">{{ $garden.title }}</h1>
+                <p class="garden-description">{{ $garden.description }}</p>
+            </header>
+
+            <div class="garden-search-wrap">
+                <form class="garden-search" id="garden-search" action="{{ "search/" | relURL }}" role="search">
+                    <span class="garden-search-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </span>
+                    <input id="garden-search-input" name="q" type="search" autocomplete="off"
+                        placeholder="Search notes, topics, and ideas..." aria-label="Search the garden"
+                        data-index-url="{{ "index.json" | relURL }}">
+                    <kbd>⌘ K</kbd>
+                </form>
+                <div class="garden-search-results" id="garden-search-results" aria-live="polite" hidden></div>
+            </div>
+
+            <div class="garden-topics" aria-label="Browse by topic">
+                {{- range $garden.topics }}
+                <button class="garden-topic" type="button" data-garden-query="{{ .query }}">{{ .label }}</button>
+                {{- end }}
+            </div>
+
+            <section class="garden-notes" aria-labelledby="latest-notes-title">
+                <div class="garden-section-heading">
+                    <h2 id="latest-notes-title">Recently added</h2>
+                    <a href="{{ "archives/" | relURL }}">View all <span aria-hidden="true">→</span></a>
+                </div>
+
+                {{- if $pages }}
+                <div class="garden-card-grid">
+                    {{- range first 8 $pages.ByDate.Reverse }}
+                        {{- partial "garden/note-card.html" . }}
+                    {{- end }}
+                </div>
+                {{- else }}
+                <div class="garden-empty">
+                    <p>The garden is just getting started. The first note will appear here.</p>
+                </div>
+                {{- end }}
+            </section>
+        </section>
+
+        <aside class="garden-rail" aria-label="About this digital garden">
+            <div class="garden-avatar-wrap">
+                <img src="{{ $garden.profile.avatar | relURL }}" alt="{{ $garden.profile.alt }}" width="320" height="320">
+            </div>
+
+            <section class="garden-rail-section garden-about">
+                <p class="garden-rail-label">ABOUT</p>
+                <h2>{{ $garden.about.title }}</h2>
+                <p>{{ $garden.about.body }}</p>
+                <p class="garden-rail-footnote">{{ $garden.about.footnote }}</p>
+                <a href="{{ "about/" | relURL }}">More about me <span aria-hidden="true">→</span></a>
+            </section>
+
+            <section class="garden-rail-section garden-now">
+                <p class="garden-rail-label">{{ upper $garden.now.title }}</p>
+                <ul>
+                    {{- range $garden.now.items }}
+                    <li><span aria-hidden="true"></span>{{ . }}</li>
+                    {{- end }}
+                </ul>
+            </section>
+        </aside>
+    </div>
+</div>
+{{- end }}

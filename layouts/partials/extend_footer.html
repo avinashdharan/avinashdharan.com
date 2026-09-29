@@ -1,0 +1,11 @@
+{{- if .IsHome }}
+{{- $fuse := resources.Get "js/fuse.js" }}
+{{- $gardenSearch := resources.Get "js/garden-search.js" }}
+{{- $bundle := (slice $fuse $gardenSearch) | resources.Concat "assets/js/garden-search.js" | minify }}
+{{- if not .Site.Params.assets.disableFingerprinting }}
+{{- $bundle = $bundle | fingerprint }}
+<script defer crossorigin="anonymous" src="{{ $bundle.RelPermalink }}" integrity="{{ $bundle.Data.Integrity }}"></script>
+{{- else }}
+<script defer crossorigin="anonymous" src="{{ $bundle.RelPermalink }}"></script>
+{{- end }}
+{{- end }}
